@@ -1,5 +1,6 @@
 package com.example.dictionaryapp.data.repository
 
+import androidx.annotation.WorkerThread
 import com.example.dictionaryapp.core.util.Resource
 import com.example.dictionaryapp.data.local.WordInfoDao
 import com.example.dictionaryapp.data.remote.DictionaryApi
@@ -18,6 +19,8 @@ class WordInfoRepositoryImpl(
     private val api: DictionaryApi,
     private val dao: WordInfoDao
 ): WordInfoRepository {
+
+    @WorkerThread
     override fun getWordInfo(word: String): Flow<Resource<List<WordInfo>>> = flow {
         emit(Resource.Loading())
 
