@@ -7,8 +7,10 @@ import com.example.dictionaryapp.domain.model.WordInfo
 import com.example.dictionaryapp.domain.repository.WordInfoRepository
 import com.example.dictionaryapp.domain.toWordInfo
 import com.example.dictionaryapp.domain.toWordInfoEntity
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import retrofit2.HttpException
 import java.io.IOException
 
@@ -40,5 +42,5 @@ class WordInfoRepositoryImpl(
 
         val newWordInfo = dao.getWordInfo(word).map { it.toWordInfo() }
         emit(Resource.Success(newWordInfo))
-    }
+    }.flowOn(Dispatchers.IO)
 }
