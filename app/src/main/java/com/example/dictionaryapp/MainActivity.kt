@@ -6,7 +6,6 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -39,14 +38,16 @@ import com.example.dictionaryapp.presentation.WordInfoViewModel
 import com.example.dictionaryapp.ui.theme.DictionaryAppTheme
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 class MainActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             DictionaryAppTheme {
-                val viewModel: WordInfoViewModel by viewModels()
+                val viewModel: WordInfoViewModel by viewModel()
                 val state = viewModel.state.collectAsStateWithLifecycle()
                 val snackBarHostState = remember { SnackbarHostState() }
                 val scope = rememberCoroutineScope()
