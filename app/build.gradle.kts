@@ -91,6 +91,9 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.2")
     implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2")
 
+    //Koin
+    implementation("io.insert-koin:koin-android:3.3.3")
+
     //Room
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
