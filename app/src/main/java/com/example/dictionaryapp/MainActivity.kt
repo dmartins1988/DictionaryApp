@@ -37,11 +37,9 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.dictionaryapp.presentation.WordInfoItem
 import com.example.dictionaryapp.presentation.WordInfoViewModel
 import com.example.dictionaryapp.ui.theme.DictionaryAppTheme
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
